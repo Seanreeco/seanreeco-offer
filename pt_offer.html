@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>April Applications — The 16-Week Executive Rebuild | SEANREECO Coaching</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f9f7f2;
+      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.78;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 48px 56px 64px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .doc-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-bottom: 18px;
+      color: #111;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .logo-wrap {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-wrap img {
+      max-width: 240px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .author-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 22px;
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #03f6ff, #00c4d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* URGENCY BLOCK */
+    .urgency-block {
+      border-left: 4px solid #ccc;
+      padding: 16px 20px;
+      margin-bottom: 36px;
+      background: #fafafa;
+    }
+
+    .urgency-block .highlight-yellow {
+      background-color: #fff176;
+      padding: 1px 4px;
+      font-weight: 700;
+    }
+
+    .urgency-block p {
+      margin-bottom: 8px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .urgency-block p:last-child { margin-bottom: 0; }
+    .urgency-block .italic-sign { font-style: italic; font-size: 15px; }
+
+    /* BIG HEADLINE */
+    .big-headline {
+      background-color: #e0fffe;
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      border-left: 4px solid #03f6ff;
+    }
+
+    .big-headline h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.45;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    /* HEADINGS */
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+      margin: 32px 0 16px;
+      line-height: 1.35;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    p { margin-bottom: 18px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* NOT FOR YOU / FOR YOU */
+    .not-for-you, .for-you {
+      border-radius: 4px;
+      padding: 16px 20px 16px 24px;
+      margin: 14px 0;
+    }
+
+    .not-for-you {
+      background: #fff5f5;
+      border-left: 4px solid #e53e3e;
+    }
+
+    .for-you {
+      background: #e0fffe;
+      border-left: 4px solid #03f6ff;
+    }
+
+    .not-for-you ul, .for-you ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .not-for-you li, .for-you li {
+      padding: 5px 0 5px 22px;
+      position: relative;
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    .not-for-you li::before {
+      content: "✗";
+      position: absolute;
+      left: 0;
+      color: #e53e3e;
+      font-weight: 700;
+    }
+
+    .for-you li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #00a8b0;
+      font-weight: 700;
+    }
+
+    /* CYCLE BLOCKS */
+    .cycle-block {
+      margin-bottom: 28px;
+    }
+
+    .cycle-heading {
+      background: #03f6ff;
+      color: #000;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 16px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    /* INCLUDED TABLE */
+    .included-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      margin: 16px 0;
+    }
+
+    .included-table th {
+      background: #111;
+      color: #03f6ff;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .included-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .included-table tr:last-child td { border-bottom: none; }
+    .included-table tr:nth-child(even) td { background: #fafafa; }
+
+    .check {
+      color: #00a8b0;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    /* BEFORE/AFTER PHOTOS */
+    .proof-section {
+      margin: 32px 0;
+    }
+
+    .proof-intro {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .proof-card {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .proof-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* RESULT CALLOUTS */
+    .result-callout {
+      background: #f9f9f7;
+      border-left: 4px solid #03f6ff;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .result-callout .big-number {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 4px;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .result-callout p {
+      font-size: 15px;
+      color: #555;
+      margin: 0;
+    }
+
+    /* GUARANTEE */
+    .guarantee-box {
+      background: #0d0d0d;
+      color: #f0f0f0;
+      border-radius: 6px;
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+
+    .guarantee-box h3 {
+      color: #03f6ff;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .guarantee-box p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #ddd;
+      margin-bottom: 14px;
+    }
+
+    .guarantee-box p:last-child { margin-bottom: 0; }
+
+    /* PRICING */
+    .pricing-box {
+      border: 2px solid #03f6ff;
+      border-radius: 6px;
+      padding: 28px 32px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .pricing-box .price-main {
+      display: block;
+      font-size: 42px;
+      font-weight: 800;
+      color: #111;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .pricing-box .price-sub {
+      display: block;
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .pricing-box p { font-size: 15px; color: #444; margin: 0; }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid #f0f0f0;
+      padding: 16px 0;
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 15.5px;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* CTA */
+    .cta-section { margin: 32px 0; }
+
+    .key-statement {
+      background: #03f6ff;
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .cta-step {
+      padding: 6px 0;
+      font-size: 16px;
+    }
+
+    .cta-link {
+      display: inline-block;
+      background: #03f6ff;
+      color: #000;
+      font-weight: 800;
+      font-size: 17px;
+      padding: 16px 40px;
+      border-radius: 5px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+      transition: background 0.15s ease;
+    }
+
+    .cta-link:hover { background: #00dde6; }
+
+    .waitlist-note {
+      background: #fffbeb;
+      border-left: 3px solid #f59e0b;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #78350f;
+      margin-top: 16px;
+    }
+
+    /* SIGN-OFF */
+    .sign-off { margin: 32px 0 24px; font-size: 16px; }
+
+    /* PS */
+    .ps-block {
+      border-top: 1px solid #eee;
+      padding-top: 24px;
+      margin-top: 24px;
+      font-size: 15px;
+      color: #444;
+    }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid #eee; margin: 36px 0; }
+
+    /* BLOCKQUOTES */
+    blockquote {
+      border-left: 3px solid #03f6ff;
+      padding: 10px 18px;
+      margin: 16px 0;
+      color: #444;
+      font-style: italic;
+      background: #e8fffe;
+    }
+
+    /* CYCLE DIAGRAM */
+    .cycle-diagram {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 24px 0 28px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cycle-box {
+      flex: 5;
+      background: #03f6ff;
+      color: #000;
+      text-align: center;
+      padding: 14px 10px;
+      border-radius: 4px 0 0 4px;
+      line-height: 1.4;
+    }
+
+    .cycle-box-small {
+      flex: 1;
+      background: #1a1a1a;
+      color: #03f6ff;
+      text-align: center;
+      padding: 14px 10px;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.4;
+    }
+
+    .cycle-repeat {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #999;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .container { padding: 28px 22px 48px; }
+      .doc-title { font-size: 22px; }
+      .big-headline h2 { font-size: 18px; }
+      h1 { font-size: 20px; }
+      .pricing-box .price-main { font-size: 28px; }
+      .cycle-diagram { flex-direction: column; }
+      .cycle-box, .cycle-box-small { border-radius: 4px; width: 100%; }
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <h1 class="doc-title" style="margin-top:0;">SEANREECO Coaching &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; 12 Spots Only</h1>
+
+    <div class="logo-wrap">
+      <img src="logo.png" alt="SEANREECO Coaching" />
+    </div>
+
+    <div class="author-line">
+      <div class="author-avatar">SR</div>
+      <span>Sean Stuart &nbsp;·&nbsp; SEANREECO Coaching &nbsp;·&nbsp; Updated Apr 2026</span>
+    </div>
+
+    <!-- URGENCY BLOCK -->
+    <div class="urgency-block">
+      <p><em><strong>I only take on 12 private coaching clients per month — April applications are open now.</strong></em></p>
+      <p><span class="highlight-yellow">Applications close at the end of this week. After that, you go on the waitlist for May.</span></p>
+      <p>If you have been thinking about making a change, this is the window. Apply now and I will review your situation personally.</p>
+      <p class="italic-sign"><em>— Sean</em></p>
+    </div>
+
+    <!-- BIG HEADLINE -->
+    <div class="big-headline">
+      <h2>I help men over 35 get their body back. Not the watered-down version. The version that actually looked like you.</h2>
+    </div>
+
+    <!-- BODY COPY -->
+    <p>You're stuffed by 2pm. The shirts are pulling tight in the wrong places. You catch yourself in a photo and do a double-take.</p>
+
+    <p>You have built a career. You have a family. Most people looking at your life would call it a success. But there is this one area - your body, your energy, your health, where you have been quietly losing ground for years, and the longer it goes, the harder it gets to ignore.</p>
+
+    <p>Maybe you are avoiding the beach. Declining things you would have jumped at ten years ago. Looking at your kids and feeling a quiet dread about whether you are going to be the dad who keeps up with them, or the one who sits on the sideline. Maybe you just feel like you are becoming your father. And you swore you never would.</p>
+
+    <p>Here is what I know after 17 years of coaching men: the guys who come to me in their late 30s and 40s are almost always the same person. Smart. Driven. Successful in every other area of life. And genuinely frustrated they cannot crack this one.</p>
+
+    <p>Not because they are lazy. Not because they do not care. Because the fitness industry was not built for them. The programs, the meal plans, the advice — none of it was designed for a man running at your pace, under your level of pressure, with your schedule.</p>
+
+    <p>What you need is a system built specifically for where you are now — your age, your hormones, your schedule, and your actual goals. Not a template some 26-year-old ran.</p>
+
+    <p>That is what the 16-Week Executive Rebuild is.</p>
+
+    <hr class="divider" />
+
+    <!-- PROOF SECTION -->
+    <h1>What this actually produces.</h1>
+
+    <p class="proof-intro">My clients are not athletes. They are busy men who committed to a process and followed through. These are real results from real people who were exactly where you are now.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <img src="photos/photo_01.png" alt="Rob — Down 12.5kg in 8 weeks" />
+      </div>
+      <div class="proof-card">
+        <img src="photos/photo_02.png" alt="Steve — Down 8.3kg in 6 weeks" />
+      </div>
+      <div class="proof-card">
+        <img src="photos/photo_03.png" alt="Josh — Down 12kg in 8 weeks" />
+      </div>
+    </div>
+
+    <div class="result-callout">
+      <span class="big-number">Rob &mdash; Down 12.5kg in 8 weeks</span>
+      <p>A busy professional who had tried and failed before. Eight weeks in, he was unrecognisable.</p>
+    </div>
+
+    <div class="result-callout">
+      <span class="big-number">Steve &mdash; Down 8.3kg in 6 weeks</span>
+      <p>Six weeks. That is all it took before Steve felt better than he had in years.</p>
+    </div>
+
+    <div class="result-callout">
+      <span class="big-number">Josh &mdash; Down 12kg in 8 weeks</span>
+      <p>The results in the first eight weeks alone were more than Josh had achieved in two years of going it alone.</p>
+    </div>
+
+    <p>The demographic changes. The system does not. When you follow it, the weight comes off, the muscle comes back, and the energy returns. Every time.</p>
+
+    <blockquote>"I feel more energetic and confident, both at work and at home."</blockquote>
+    <blockquote>"The changes are simple and they actually stick. I never felt like I was suffering."</blockquote>
+    <blockquote>"My only regret is that I did not start this five years ago."</blockquote>
+
+    <p><strong>That last one is the one I hear the most. Do not let it be yours.</strong></p>
+
+    <hr class="divider" />
+
+    <!-- WHO I AM -->
+    <h1>Who I am.</h1>
+
+    <p>My name is Sean Stuart. I have been a personal trainer for 17 years. I have owned my own studios, run thousands of sessions, and coached men and women of all ages and backgrounds.</p>
+
+    <p>I now run SEANREECO Coaching entirely online and work with a small number of private clients at a time — because the only way to get the result I am known for is by being genuinely invested in each person I take on.</p>
+
+    <p>I am selective about who I work with. Not to be precious about it. Because your result is my reputation.</p>
+
+    <hr class="divider" />
+
+    <!-- IS THIS FOR YOU -->
+    <h1>This is a private 1-on-1 coaching program. I am selective about who I take on.</h1>
+
+    <p>This will not work for you if...</p>
+
+    <div class="not-for-you">
+      <ul>
+        <li>You want to use your schedule as a reason not to take care of yourself</li>
+        <li>You are not willing to follow a structured plan and check in consistently</li>
+        <li>You do not have access to a commercial gym or a well-equipped home gym</li>
+        <li>You are still deciding whether you actually want this</li>
+      </ul>
+    </div>
+
+    <p>But if you are...</p>
+
+    <div class="for-you">
+      <ul>
+        <li>A man over 35 who used to be in shape and is sick of watching it slip</li>
+        <li>Ready to drop 10 to 20kg and rebuild the muscle lost over the last decade</li>
+        <li>Running a demanding career but finally ready to make your health non-negotiable</li>
+        <li>Someone who respects a structured process and wants a clear blueprint</li>
+        <li>Done with trial and error and ready to invest in something that works</li>
+      </ul>
+    </div>
+
+    <p>Then keep reading. This is exactly what I built this for.</p>
+
+    <hr class="divider" />
+
+    <!-- THE PLAN -->
+    <h1>The 16-Week Executive Rebuild.</h1>
+
+    <p>I do not hand you a program and wish you luck. I build a system around your schedule, your environment, your specific body — and then I stay in it with you every week until the result is locked in.</p>
+
+    <p>Instead of one long phase that plateaus at week six, I run this in <strong>6-week cycles</strong> — the same method used by elite physique coaches to keep the body responding through the full 16 weeks.</p>
+
+    <!-- CYCLE DIAGRAM -->
+    <div class="cycle-diagram">
+      <div class="cycle-box">
+        <div>WEEKS 1–5</div>
+        <div style="font-size:12px; font-weight:400; margin-top:4px;">Calorie Deficit<br>Fat Loss + Muscle Rebuild</div>
+      </div>
+      <div style="font-size:20px; color:#999; padding: 0 8px;">+</div>
+      <div class="cycle-box-small">
+        <div>WEEK 6</div>
+        <div style="font-size:12px; font-weight:400; margin-top:4px;">Maintenance<br>Hormone Reset</div>
+      </div>
+    </div>
+    <p class="cycle-repeat">This 6-week cycle repeats across the full 16 weeks — keeping your body responding and your results compounding.</p>
+
+    <!-- CYCLE 1 -->
+    <div class="cycle-block" style="margin-top: 28px;">
+      <div class="cycle-heading">Weeks 1 to 5 — The Deficit</div>
+      <p>This is where the weight comes off and the muscle starts coming back. Your custom training and nutrition plan is loaded into your private app. You open it and execute. I track your daily checkpoints for water, steps, and sleep — the fundamentals most busy men have quietly let slip.</p>
+      <p>You can track your food in MyFitnessPal where I see exactly what you are eating, or follow the exact meal blueprint I give you and skip counting altogether. Both work.</p>
+      <p>Within two weeks, most clients notice their energy stabilising and the initial weight dropping. By week four, the system is running. You are not relying on willpower.</p>
+    </div>
+
+    <!-- CYCLE 2 -->
+    <div class="cycle-block">
+      <div class="cycle-heading">Week 6 — The Reset</div>
+      <p>The thing most programs skip — and exactly why most programs stop working. After five weeks pushing hard, I bring you to maintenance calories for one week. Not a rest week. A deliberate metabolic and hormonal reset. This is why you keep getting results at week 10 and week 14 instead of hitting the wall at week six.</p>
+    </div>
+
+    <!-- CYCLE 3 -->
+    <div class="cycle-block">
+      <div class="cycle-heading">Weeks 7 to 16 — The Cycle Compounds</div>
+      <p>The cycle repeats and builds. I fine-tune the variables based on your weekly check-in data. By week 16, the habits are automatic. The confidence is back. The energy is consistent.</p>
+      <p>You are not running a program anymore. <strong>You are running a higher-capacity version of yourself.</strong></p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- WHAT'S INCLUDED -->
+    <h1>What is included, every week, for 16 weeks.</h1>
+
+    <table class="included-table">
+      <thead>
+        <tr>
+          <th>What you get</th>
+          <th>What it actually means</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="check">&#10003;</span> Custom training plan</td>
+          <td>Built for your schedule, your gym, and your goals. Not a template.</td>
+        </tr>
+        <tr>
+          <td><span class="check">&#10003;</span> Custom meal plan and macros</td>
+          <td>Follow the blueprint exactly, or track flexibly in MyFitnessPal. No calorie counting required if you do not want it.</td>
+        </tr>
+        <tr>
+          <td><span class="check">&#10003;</span> Private coaching app</td>
+          <td>Your training, nutrition, and daily checkpoints all in one place. Open it and execute.</td>
+        </tr>
+        <tr>
+          <td><span class="check">&#10003;</span> Mid-week text check-in</td>
+          <td>A quick check halfway through the week to catch any issues before they compound.</td>
+        </tr>
+        <tr>
+          <td><span class="check">&#10003;</span> Weekly video check-in</td>
+          <td>I review your data, your progress, and give you specific feedback every single week. Not a generic response. Actual coaching.</td>
+        </tr>
+        <tr>
+          <td><span class="check">&#10003;</span> Direct messaging access</td>
+          <td>Ask me anything, at any point. No waiting for a scheduled call.</td>
+        </tr>
+        <tr>
+          <td><span class="check">&#10003;</span> Daily habit checkpoints</td>
+          <td>Water, steps, sleep. The small things that compound into the big result.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="divider" />
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box">
+      <h3>My Commitment to You</h3>
+      <p>I do not offer a generic money-back guarantee. I only work with men who are committed to the process.</p>
+      <p>What I will commit to: if you complete every workout, hit your nutrition targets, and check in with me every week — and you do not see significant changes after 16 weeks — I will keep coaching you for free until you do.</p>
+      <p>The only way you fail is if you quit. And if you are the kind of man reading this, that is not in your vocabulary.</p>
+      <p style="margin-bottom:0;"><strong>The risk is not in starting. The risk is in waiting another year and being exactly where you are now.</strong></p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- PRICING -->
+    <h1>The investment.</h1>
+
+    <p>I keep my roster capped at 12 private clients so each one gets real attention, real adjustments, and real results.</p>
+
+    <div class="pricing-box">
+      <span class="price-main">$4,000</span>
+      <span class="price-sub">Full 16-week private coaching — one payment, everything included.</span>
+      <p>$250 per week for a fully custom plan, weekly video coaching, and direct access every day.<br><br>After 16 weeks, you can roll into a month-to-month maintenance phase. No lock-in. Cancel anytime.</p>
+    </div>
+
+    <p>Most men spend more than $250 a week on things actively making this problem worse.</p>
+
+    <hr class="divider" />
+
+    <!-- FAQ -->
+    <h1>Questions.</h1>
+
+    <div class="faq-item">
+      <p class="faq-q">Do I need to be near Sydney?</p>
+      <p class="faq-a">No. Everything is online, through your private app. Works around your location and gym setup.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">What if I travel a lot for work?</p>
+      <p class="faq-a">That is exactly who this is built for. The training and nutrition adapts to hotel gyms, flight schedules, and weeks where everything goes sideways.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How much time does this take each week?</p>
+      <p class="faq-a">Three to four sessions a week, 45 to 60 minutes each. No two-hour gym sessions.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">I have tried programs before and they did not work. Why is this different?</p>
+      <p class="faq-a">Because this is a coaching relationship, not a program. I am reviewing your data every week, adjusting the plan, and solving problems before they become reasons to quit. A template cannot do that.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">What if I am not accepted?</p>
+      <p class="faq-a">If I do not believe I can get you the result, I will refund your $500 deposit immediately and tell you exactly what to work on.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">What happens after week 16?</p>
+      <p class="faq-a">The system is running. You can continue on a month-to-month retainer or step back knowing the habits are locked in. Most clients choose to stay.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="key-statement">I only open applications in the first week of each month. After that, the door closes and the next intake goes to the waitlist. 12 spots. First week only.</div>
+
+      <p>You have been putting this off for a while. You know you have. Every month it gets a little harder to shift the weight, a little harder to find the energy.</p>
+
+      <p>The application takes five minutes. The deposit is fully refundable if you are not accepted. There is no logical reason to wait another month.</p>
+
+      <p class="cta-step"><strong>Step 1.</strong> Click the button below to go to the application page.</p>
+      <p class="cta-step"><strong>Step 2.</strong> Fill out the short application form.</p>
+      <p class="cta-step"><strong>Step 3.</strong> Place a fully-refundable $500 deposit to hold your spot in the review queue.</p>
+
+      <p>I will review your application personally. If I do not believe I can get you the result, I will refund your deposit immediately. If you are the right fit, I will message you directly.</p>
+
+      <div style="text-align:center; margin: 28px 0 8px;">
+        <a href="apply.html" class="cta-link">Apply for the 16-Week Executive Rebuild &rarr;</a>
+      </div>
+
+      <div class="waitlist-note">
+        <strong>Note:</strong> If this month's spots are already full by the time you apply, your deposit will be refunded and you will be placed on the waitlist for next month. Either way, you are moving forward.
+      </div>
+    </div>
+
+    <!-- SIGN OFF -->
+    <div class="sign-off">
+      <p>— Sean</p>
+    </div>
+
+    <!-- PS -->
+    <div class="ps-block">
+      <p><strong>P.S.</strong> The men who get the best results apply the moment they realise they need it. Not the ones who bookmark the page and come back in three weeks to find it full. If your gut is telling you this is exactly what you need — trust that. The deposit is refundable if you are not accepted.</p>
+      <p style="margin-bottom:0;"><strong>P.P.S.</strong> If this month is already full, you will be first in line for May. Either way, you are moving forward.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+      SEANREECO Coaching &nbsp;·&nbsp; seanreeco.com &nbsp;·&nbsp; @seanreeco
+    </div>
+
+  </div>
+</body>
+</html>
