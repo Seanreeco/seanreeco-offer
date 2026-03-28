@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Form — 16-Week Executive Rebuild | SEANREECO Coaching</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #f4f4f0;
+      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background-color: #0d0d0d;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .site-header img { max-height: 44px; width: auto; }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar-wrap {
+      background: #e0e0e0;
+      height: 4px;
+      width: 100%;
+    }
+    .progress-bar-fill {
+      background: #03f6ff;
+      height: 4px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      padding: 48px 20px 80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-wrap {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* ── PAGE HEADER ── */
+    .form-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .form-header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #111;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .form-header p {
+      font-size: 15px;
+      color: #666;
+    }
+
+    /* ── SECTION CARDS ── */
+    .form-section {
+      background: #fff;
+      border-radius: 6px;
+      padding: 32px 36px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #03c4cc;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    /* ── FIELD GROUPS ── */
+    .field-group {
+      margin-bottom: 22px;
+    }
+
+    .field-group:last-child { margin-bottom: 0; }
+
+    .field-group label {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .field-group .field-hint {
+      font-size: 13px;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* ── INPUTS ── */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 5px;
+      font-size: 15px;
+      font-family: inherit;
+      color: #1a1a1a;
+      background: #fafafa;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #03f6ff;
+      box-shadow: 0 0 0 3px rgba(3, 246, 255, 0.15);
+      background: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    /* ── TWO COLUMN GRID ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── YES/NO TOGGLE ── */
+    .yn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .yn-option {
+      flex: 1;
+    }
+
+    .yn-option input[type="radio"] {
+      display: none;
+    }
+
+    .yn-option label {
+      display: block;
+      text-align: center;
+      padding: 10px 16px;
+      border: 1.5px solid #ddd;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #fafafa;
+      margin-bottom: 0;
+    }
+
+    .yn-option input[type="radio"]:checked + label {
+      border-color: #03f6ff;
+      background: #e0fffe;
+      color: #000;
+      box-shadow: 0 0 0 2px rgba(3, 246, 255, 0.3);
+    }
+
+    .yn-option label:hover {
+      border-color: #03f6ff;
+      background: #f0fffe;
+    }
+
+    /* ── MULTI CHOICE ── */
+    .multi-choice {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .mc-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .mc-option input[type="radio"],
+    .mc-option input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #03f6ff;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .mc-option span {
+      font-size: 15px;
+      color: #333;
+    }
+
+    /* ── REQUIRED STAR ── */
+    .req { color: #e53e3e; margin-left: 2px; }
+
+    /* ── SUBMIT SECTION ── */
+    .submit-section {
+      background: #0d0d0d;
+      border-radius: 6px;
+      padding: 36px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .submit-section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .submit-section p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      background: #03f6ff;
+      color: #000;
+      font-weight: 800;
+      font-size: 17px;
+      padding: 16px 48px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      max-width: 400px;
+      transition: background 0.15s ease;
+      letter-spacing: 0.2px;
+    }
+
+    .submit-btn:hover { background: #00dde6; }
+
+    .submit-note {
+      font-size: 13px;
+      color: #888;
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background-color: #0d0d0d;
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+    .site-footer a { color: #888; text-decoration: none; margin: 0 10px; }
+    .site-footer a:hover { color: #ccc; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .form-section { padding: 24px 20px; }
+      .two-col { grid-template-columns: 1fr; }
+      .form-header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <img src="logo.png" alt="SEANREECO Coaching" />
+  </header>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressBar"></div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div class="form-wrap">
+
+      <!-- PAGE HEADER -->
+      <div class="form-header">
+        <h1>16-Week Executive Rebuild — Application</h1>
+        <p>This takes about 10 minutes. Answer honestly — there are no wrong answers.</p>
+      </div>
+
+      <!--
+        FORMSUBMIT SETUP:
+        Replace YOUR_EMAIL_HERE with your actual email address (e.g. sean@seanreeco.com).
+        Formsubmit.co will send all responses directly to that email, no account required.
+        First submission will ask you to confirm your email — do that once and it works forever.
+      -->
+      <form
+        action="https://formsubmit.co/YOUR_EMAIL_HERE"
+        method="POST"
+        id="applicationForm"
+        onsubmit="handleSubmit(event)"
+      >
+
+        <!-- Formsubmit config fields -->
+        <input type="hidden" name="_subject" value="New Application — 16-Week Executive Rebuild" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="thankyou.html" />
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECTION 1: THE BASICS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="form-section">
+          <span class="section-label">Section 1 of 5 &nbsp;·&nbsp; The Basics</span>
+
+          <div class="two-col">
+            <div class="field-group">
+              <label for="firstName">First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" name="First Name" required placeholder="e.g. James" />
+            </div>
+            <div class="field-group">
+              <label for="lastName">Last Name <span class="req">*</span></label>
+              <input type="text" id="lastName" name="Last Name" required placeholder="e.g. Mitchell" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="Email Address" required placeholder="you@example.com" />
+          </div>
+
+          <div class="two-col">
+            <div class="field-group">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="Phone Number" required placeholder="+61 4XX XXX XXX" />
+            </div>
+            <div class="field-group">
+              <label for="age">Age <span class="req">*</span></label>
+              <input type="number" id="age" name="Age" required placeholder="e.g. 42" min="18" max="75" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="location">City / State <span class="req">*</span></label>
+            <input type="text" id="location" name="City / State" required placeholder="e.g. Melbourne, VIC" />
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECTION 2: WHERE YOU ARE RIGHT NOW -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="form-section">
+          <span class="section-label">Section 2 of 5 &nbsp;·&nbsp; Where You Are Right Now</span>
+
+          <div class="two-col">
+            <div class="field-group">
+              <label for="currentWeight">Current Weight (approx.) <span class="req">*</span></label>
+              <input type="text" id="currentWeight" name="Current Weight" required placeholder="e.g. 98kg" />
+            </div>
+            <div class="field-group">
+              <label for="goalWeight">Goal Weight <span class="req">*</span></label>
+              <input type="text" id="goalWeight" name="Goal Weight" required placeholder="e.g. 80kg" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="physicalCondition">If you had to describe your current physical condition in one honest sentence, what would you say? <span class="req">*</span></label>
+            <span class="field-hint">Don't sugarcoat it — the more honest you are, the better I can help.</span>
+            <textarea id="physicalCondition" name="Current Physical Condition" required placeholder="e.g. I'm the heaviest I've ever been, I'm tired all the time, and I barely recognise myself in photos anymore."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="biggestFrustration">What is the biggest frustration you have with your body right now? <span class="req">*</span></label>
+            <textarea id="biggestFrustration" name="Biggest Frustration" required placeholder="e.g. I've tried diets before and lost weight, but it always comes back. I feel like I'm fighting a losing battle."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label>How long have you been feeling this way about your body?</label>
+            <div class="multi-choice">
+              <label class="mc-option"><input type="radio" name="How Long Feeling This Way" value="Less than 1 year" /><span>Less than 1 year</span></label>
+              <label class="mc-option"><input type="radio" name="How Long Feeling This Way" value="1 to 3 years" /><span>1 to 3 years</span></label>
+              <label class="mc-option"><input type="radio" name="How Long Feeling This Way" value="3 to 5 years" /><span>3 to 5 years</span></label>
+              <label class="mc-option"><input type="radio" name="How Long Feeling This Way" value="More than 5 years" /><span>More than 5 years</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECTION 3: YOUR LIFE & SCHEDULE -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="form-section">
+          <span class="section-label">Section 3 of 5 &nbsp;·&nbsp; Your Life and Schedule</span>
+
+          <div class="field-group">
+            <label>What does your family situation look like? <span class="req">*</span></label>
+            <div class="multi-choice">
+              <label class="mc-option"><input type="radio" name="Family Situation" value="Single, no kids" required /><span>Single, no kids</span></label>
+              <label class="mc-option"><input type="radio" name="Family Situation" value="In a relationship, no kids" /><span>In a relationship, no kids</span></label>
+              <label class="mc-option"><input type="radio" name="Family Situation" value="Married or partnered with kids" /><span>Married or partnered with kids</span></label>
+              <label class="mc-option"><input type="radio" name="Family Situation" value="Divorced or separated with kids" /><span>Divorced or separated with kids</span></label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="workLife">What do you do for work, and how demanding is a typical week for you? <span class="req">*</span></label>
+            <span class="field-hint">Give me a feel for your schedule, stress level, and how much time you realistically have.</span>
+            <textarea id="workLife" name="Work and Schedule" required placeholder="e.g. I run my own business — I'm usually working 55-60 hours a week, constantly on the phone or in meetings. I travel interstate about once a month. I'm exhausted by Friday."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label>Do you currently have access to a commercial gym or a well-equipped home gym? <span class="req">*</span></label>
+            <span class="field-hint">This program requires a gym with weights. I do not train people from home with no equipment.</span>
+            <div class="yn-group">
+              <div class="yn-option">
+                <input type="radio" id="gymYes" name="Has Gym Access" value="Yes" required />
+                <label for="gymYes">Yes</label>
+              </div>
+              <div class="yn-option">
+                <input type="radio" id="gymNo" name="Has Gym Access" value="No" />
+                <label for="gymNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>How many days per week can you realistically commit to training for 45 to 60 minutes? <span class="req">*</span></label>
+            <div class="multi-choice">
+              <label class="mc-option"><input type="radio" name="Training Days Per Week" value="1 to 2 days" required /><span>1 to 2 days</span></label>
+              <label class="mc-option"><input type="radio" name="Training Days Per Week" value="3 days" /><span>3 days</span></label>
+              <label class="mc-option"><input type="radio" name="Training Days Per Week" value="4 days" /><span>4 days</span></label>
+              <label class="mc-option"><input type="radio" name="Training Days Per Week" value="5 or more days" /><span>5 or more days</span></label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Are you currently training at all? <span class="req">*</span></label>
+            <div class="yn-group">
+              <div class="yn-option">
+                <input type="radio" id="trainingYes" name="Currently Training" value="Yes" required />
+                <label for="trainingYes">Yes</label>
+              </div>
+              <div class="yn-option">
+                <input type="radio" id="trainingNo" name="Currently Training" value="No" />
+                <label for="trainingNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="trainingDetail">If yes, what does your current training look like? If no, when did you last train regularly?</label>
+            <textarea id="trainingDetail" name="Current Training Details" placeholder="e.g. I go to the gym maybe once or twice a week but I don't really have a plan. I just do whatever feels right and leave. / I haven't trained properly since 2019."></textarea>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECTION 4: FOOD & HISTORY -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="form-section">
+          <span class="section-label">Section 4 of 5 &nbsp;·&nbsp; Food and History</span>
+
+          <div class="field-group">
+            <label>What is your biggest struggle when it comes to food? <span class="req">*</span></label>
+            <span class="field-hint">Select all that apply.</span>
+            <div class="multi-choice">
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="Portion control — I eat too much" /><span>Portion control — I eat too much</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="Snacking at night" /><span>Snacking at night</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="Eating out for work or social events" /><span>Eating out for work or social events</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="No time to prepare healthy food" /><span>No time to prepare healthy food</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="Alcohol — I drink regularly" /><span>Alcohol — I drink regularly</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="I don't know what I should be eating" /><span>I don't know what I should be eating</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="Stress eating" /><span>Stress eating</span></label>
+              <label class="mc-option"><input type="checkbox" name="Food Struggles" value="I eat well during the week but fall apart on weekends" /><span>I eat well during the week but fall apart on weekends</span></label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Do you have any food allergies, intolerances, or dietary restrictions I should know about?</label>
+            <input type="text" name="Dietary Restrictions" placeholder="e.g. lactose intolerant, no shellfish, vegetarian — or leave blank if none" />
+          </div>
+
+          <div class="field-group">
+            <label for="previousAttempts">Have you tried to lose this weight before? If yes, what did you try and what happened? <span class="req">*</span></label>
+            <span class="field-hint">Be specific — this helps me understand what has and hasn't worked for you.</span>
+            <textarea id="previousAttempts" name="Previous Weight Loss Attempts" required placeholder="e.g. I did a 12-week challenge at my gym in 2022 and lost 8kg, but put it all back on within 6 months. I've tried keto twice. I've had a PT before but stopped when work got busy."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label>Do you have any current injuries, chronic pain, or physical limitations that would affect your training? <span class="req">*</span></label>
+            <div class="yn-group">
+              <div class="yn-option">
+                <input type="radio" id="injuryYes" name="Injuries or Limitations" value="Yes" required />
+                <label for="injuryYes">Yes</label>
+              </div>
+              <div class="yn-option">
+                <input type="radio" id="injuryNo" name="Injuries or Limitations" value="No" />
+                <label for="injuryNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="injuryDetail">If yes, please describe what is going on.</label>
+            <textarea id="injuryDetail" name="Injury Details" placeholder="e.g. Lower back issues for the last 2 years — I can train around it but heavy deadlifts are out." style="min-height: 80px;"></textarea>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SECTION 5: COMMITMENT & READINESS -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="form-section">
+          <span class="section-label">Section 5 of 5 &nbsp;·&nbsp; Commitment and Readiness</span>
+
+          <p style="font-size:15px; color:#444; margin-bottom:22px; line-height:1.7;">This section is the most important part of the application. I am not looking for perfect answers. I am looking for honest ones.</p>
+
+          <div class="field-group">
+            <label>This program requires weekly check-ins and following a structured plan, even during busy weeks. Are you willing to be coached and follow instructions consistently? <span class="req">*</span></label>
+            <div class="yn-group">
+              <div class="yn-option">
+                <input type="radio" id="coachableYes" name="Willing to Be Coached" value="Yes" required />
+                <label for="coachableYes">Yes</label>
+              </div>
+              <div class="yn-option">
+                <input type="radio" id="coachableNo" name="Willing to Be Coached" value="No" />
+                <label for="coachableNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>Are you willing to take honest before and after photos to track your progress? (These remain strictly confidential unless you give me explicit permission to share them.) <span class="req">*</span></label>
+            <div class="yn-group">
+              <div class="yn-option">
+                <input type="radio" id="photosYes" name="Willing to Take Progress Photos" value="Yes" required />
+                <label for="photosYes">Yes</label>
+              </div>
+              <div class="yn-option">
+                <input type="radio" id="photosNo" name="Willing to Take Progress Photos" value="No" />
+                <label for="photosNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>The investment for the 16-Week Executive Rebuild is $4,000, which includes a $500 refundable deposit today. Are you in a position to make this investment in yourself right now? <span class="req">*</span></label>
+            <div class="yn-group">
+              <div class="yn-option">
+                <input type="radio" id="investYes" name="Can Make the Investment" value="Yes" required />
+                <label for="investYes">Yes</label>
+              </div>
+              <div class="yn-option">
+                <input type="radio" id="investNo" name="Can Make the Investment" value="No" />
+                <label for="investNo">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label>If you are accepted, how quickly are you ready to start? <span class="req">*</span></label>
+            <div class="multi-choice">
+              <label class="mc-option"><input type="radio" name="Readiness to Start" value="Immediately — this week" required /><span>Immediately — this week</span></label>
+              <label class="mc-option"><input type="radio" name="Readiness to Start" value="Within the next 2 weeks" /><span>Within the next 2 weeks</span></label>
+              <label class="mc-option"><input type="radio" name="Readiness to Start" value="Next month" /><span>Next month</span></label>
+              <label class="mc-option"><input type="radio" name="Readiness to Start" value="I'm not sure yet" /><span>I'm not sure yet</span></label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="whyNow">Why now? Why is it important that you fix this problem this month, rather than putting it off for another year? <span class="req">*</span></label>
+            <span class="field-hint">This is the most important question on the form. Take your time with it.</span>
+            <textarea id="whyNow" name="Why Now" required placeholder="e.g. My son is 8 and I want to be able to keep up with him. I'm 43 and I can feel my health declining. I've been saying 'I'll start Monday' for three years and I'm done with that." style="min-height: 130px;"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="anythingElse">Is there anything else you want me to know about your situation before I review your application?</label>
+            <textarea id="anythingElse" name="Anything Else" placeholder="Optional — add anything that feels relevant to your situation." style="min-height: 80px;"></textarea>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- SUBMIT -->
+        <!-- ═══════════════════════════════════════════ -->
+        <div class="submit-section">
+          <h2>That's everything. Submit your application below.</h2>
+          <p>Once you submit, you will be taken to the next step to place your $500 refundable deposit. I will review your application personally and be in touch within 48 hours.</p>
+          <button type="submit" class="submit-btn">Submit My Application &rarr;</button>
+          <p class="submit-note">Your $500 deposit is fully refundable if you are not accepted.</p>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span>&copy; 2026 SEANREECO Coaching. All rights reserved.</span>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+  </footer>
+
+  <script>
+    // Progress bar — updates as user scrolls through the form
+    function updateProgress() {
+      const form = document.getElementById('applicationForm');
+      const sections = form.querySelectorAll('.form-section');
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.min(100, Math.round((scrollTop / docHeight) * 100));
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+    }
+
+    window.addEventListener('scroll', updateProgress);
+
+    // Prevent double-submission
+    function handleSubmit(e) {
+      const btn = document.querySelector('.submit-btn');
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+      // Allow the form to submit normally
+      return true;
+    }
+  </script>
+
+</body>
+</html>
